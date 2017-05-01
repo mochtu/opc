@@ -5,7 +5,7 @@ var Blinkt = require('node-blinkt'),
 leds.setup();
 
 
-module.export = {
+module.exports = {
     setTemperature: function(temp){
         leds.clearAll();
         for (var i = 0; i <= temp; i++) {
