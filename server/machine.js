@@ -4,7 +4,7 @@ function Machine() {
     const assert = require('assert');
     const configuration = {
         delay: 500,
-        minTemperature: 17
+        minTemperature: 0
     };
     let callbackList = [];
     let temperature;
