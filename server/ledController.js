@@ -6,7 +6,7 @@ var Blinkt = require('node-blinkt'),
 leds.setup();
 
 function centigrade2Pixel(temperature) {
-    return Math.min(temperature * 6 / 40 + 1, 7);
+    return Math.min(temperature * 6 / 80 + 1, 7);
 }
 
 module.exports = {
