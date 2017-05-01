@@ -2,9 +2,9 @@ function Machine() {
     'use strict';
 
     const assert = require('assert');
-
     const configuration = {
         delay: 500,
+        minTemperature: 17
     };
     let callbackList = [];
     let temperature;
@@ -26,6 +26,14 @@ function Machine() {
     }
 
     /**
+     * Get the current temperature;
+     * @return {number} Current temperature value.
+     */
+    function getTemperature() {
+        return temperature;
+    }
+
+    /**
      * Register a callback function to be called on every update.
      * @param  {Function} callback Callback function. `callback(temperature, state);`.
      * @return {undefined}
@@ -40,9 +48,17 @@ function Machine() {
      * @return {undefined}
      */
     function start() {
-        temperature = 17;
+        temperature = configuration.minTemperature;
         intervalToken = setInterval(update, configuration.delay);
         console.log('Machine started');
+    }
+
+    /**
+     * Start the cooling process.
+     * @return {undefined}
+     */
+    function startCooling() {
+        temperature = configuration.minTemperature;
     }
 
     /**
@@ -54,8 +70,10 @@ function Machine() {
         console.log('Machine stopped');
     }
 
+    this.getTemperature = getTemperature;
     this.registerCallback = registerCallback;
     this.start = start;
+    this.startCooling = startCooling;
     this.stop = stop;
 }
 
