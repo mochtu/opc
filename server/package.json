@@ -6,6 +6,7 @@
   "author": "Konzi & Mo",
   "license": "Pirates.",
   "dependencies": {
+    "node-blinkt": "^1.0.1",
     "node-opcua": "^0.0.64"
   }
 }
