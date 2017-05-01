@@ -1,7 +1,10 @@
 function Machine() {
     'use strict';
 
-    const delay = 500;
+    const configuration = {
+        delay: 500,
+    };
+    let callbackList = [];
     let temperature;
     let intervalToken;
 
@@ -12,8 +15,16 @@ function Machine() {
      * @return {undefined}
      */
     function update() {
-        console.log('temperature: "' + temperature + '"');
         temperature += 1;
+        let state = 'good';
+        console.log('temperature: "' + temperature + '"');
+        callbackList.forEach(function(element) {
+            element(temperature, state)
+        });
+    }
+
+    function registerCallback(callback) {
+        callbackList.push(callback);
     }
 
     /**
@@ -22,7 +33,7 @@ function Machine() {
      */
     function start() {
         temperature = 17;
-        intervalToken = setInterval(update, delay);
+        intervalToken = setInterval(update, configuration.delay);
         console.log('Machine started');
     }
 
@@ -35,6 +46,7 @@ function Machine() {
         console.log('Machine stopped');
     }
 
+    this.registerCallback = registerCallback;
     this.start = start;
     this.stop = stop;
 }
