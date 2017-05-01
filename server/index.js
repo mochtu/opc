@@ -1,6 +1,9 @@
 /*global require,setInterval,console */
 var opcua = require("node-opcua");
 
+var ledController = require("./ledController.js");
+
+ledController.setTemperature(4.3);
 
 // Let's create an instance of OPCUAServer
 var server = new opcua.OPCUAServer({
