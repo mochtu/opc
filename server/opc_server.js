@@ -9,12 +9,12 @@ let opcua_instance = new opcua.OPCUAServer({
      buildInfo : {
         productName: "TheHighTempOvenServer",
         buildNumber: "7658",
-        buildDate: new Date(2014,5,2)
+        buildDate: new Date(2017,5,1)
     }
 });
 
 function post_initialize() {
-    console.log("initialized", opcua_instance.engine);
+    console.log("initialized");
 
     var addressSpace = opcua_instance.engine.addressSpace;
 
