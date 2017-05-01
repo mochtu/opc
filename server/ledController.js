@@ -5,10 +5,13 @@ var Blinkt = require('node-blinkt'),
 
 leds.setup();
 
+function centigrade2Pixel(temperature) {
+    return Math.min(temperature * 6 / 20 + 1, 7);
+}
 
 module.exports = {
     setTemperature: function(temp){
-        leds.clearAll();
+        leds.setAllPixels(0, 0, 0, 0);
 
         // display status
         if(temp < 4) {
@@ -20,9 +23,11 @@ module.exports = {
         }
 
         // display temperature
-        for (var i = 0; i <= temp; i++) {
+        var temperatureLevel =  centigrade2Pixel(temp);
+        for (var i = 0; i < temperatureLevel; i++) {
             leds.setPixel(i+1, 220,10,40, BRIGHTNESS);
         }
+
         leds.sendUpdate();
     }
 }
