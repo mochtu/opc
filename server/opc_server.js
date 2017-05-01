@@ -29,7 +29,7 @@ function post_initialize() {
 
         componentOf: device,
 
-        nodeId: "ns=1;b=1020FFAA", // some opaque NodeId in namespace 4
+        nodeId: "ns=1;s=Temperature", // some opaque NodeId in namespace 1
 
         browseName: "Temperature",
 
