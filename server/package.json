@@ -1,0 +1,11 @@
+{
+  "name": "opc_led_server",
+  "version": "0.0.1",
+  "description": "OPC UA Test Setup Server for LED array",
+  "main": "index.js",
+  "author": "Konzi & Mo",
+  "license": "Pirates.",
+  "dependencies": {
+    "node-opcua": "^0.0.64"
+  }
+}
