@@ -1,0 +1,14 @@
+{
+  "name": "opc_oven_client",
+  "version": "0.0.1",
+  "description": "OPC UA Test Client for High Temp Oven",
+  "main": "index.js",
+  "author": "Konzi & Mo",
+  "license": "Pirates.",
+  "dependencies": {
+    "express": "~4.13.4",
+    "socket.io": "~1.4.5",
+    "node-opcua": "~0.0.64",
+    "colors": "*"
+  }
+}
