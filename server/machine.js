@@ -1,6 +1,8 @@
 function Machine() {
     'use strict';
 
+    const assert = require('assert');
+
     const configuration = {
         delay: 500,
     };
@@ -23,7 +25,13 @@ function Machine() {
         });
     }
 
+    /**
+     * Register a callback function to be called on every update.
+     * @param  {Function} callback Callback function. `callback(temperature, state);`.
+     * @return {undefined}
+     */
     function registerCallback(callback) {
+        assert.equal(typeof (()=>{}), typeof callback);
         callbackList.push(callback);
     }
 
